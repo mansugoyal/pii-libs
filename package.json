@@ -1,0 +1,31 @@
+{
+  "name": "pii-lib",
+  "version": "1.0.0",
+  "description": "PII encryption/decryption utilities",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "pii",
+    "encryption",
+    "nodejs"
+  ],
+  "author": "Mansu Goyal",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.5.0",
+    "typescript": "^6.0.2"
+  },
+  "dependencies": {
+    "config": "^4.4.1",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "reflect-metadata": "^0.2.2",
+    "typedi": "^0.10.0"
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "name": "pii-lib",
+  "name": "mansu054pii-lib",
   "version": "1.0.0",
   "description": "PII encryption/decryption utilities",
   "main": "dist/index.js",

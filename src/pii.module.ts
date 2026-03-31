@@ -19,16 +19,12 @@ export class PiiModule {
   }
 
   async encryptFunc(data: any) {
-    console.log("Encrypting data:", data);
     const result = await this.piiService.encryptData(data);
-    console.log("Encryption result:", result);
     return result;
   }
 
   async decryptFunc(data: any) {
-    console.log("Decrypting data:", data);
     const result = await this.piiService.decryptPayload(data);
-    console.log("Decryption result:", result);
     return result;
   }
 

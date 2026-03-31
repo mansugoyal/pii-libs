@@ -19,15 +19,11 @@ class PiiModule {
         this.piiService = new pii_service_1.PiiService(rsa, aes);
     }
     async encryptFunc(data) {
-        console.log("Encrypting data:", data);
         const result = await this.piiService.encryptData(data);
-        console.log("Encryption result:", result);
         return result;
     }
     async decryptFunc(data) {
-        console.log("Decrypting data:", data);
         const result = await this.piiService.decryptPayload(data);
-        console.log("Decryption result:", result);
         return result;
     }
     decryptMiddleware() {

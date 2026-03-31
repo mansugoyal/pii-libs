@@ -23,29 +23,17 @@ let PiiService = class PiiService {
     async encryptData(data) {
         // Generate AES key + IV
         const { key: aesKey, iv } = await this.aes.generateKeyAndIv();
-        console.log("Generated AES key and IV:", aesKey, iv);
         // Encode data
         const encodedData = new TextEncoder().encode(JSON.stringify(data));
-        console.log("Encoded data:", encodedData);
         // Convert IV to Uint8Array
         const ivBuffer = new Uint8Array(Buffer.from(iv, "base64"));
-        console.log("IV Buffer:", ivBuffer);
         // Encrypt data using AES service
         const encryptedData = await this.aes.encrypt(encodedData, aesKey, ivBuffer);
-        console.log("Encrypted data (AES):", encryptedData);
         // Export AES key
         const exportedKey = await node_crypto_1.webcrypto.subtle.exportKey("raw", aesKey);
-        console.log("Exported AES key:", exportedKey);
         const publicKey = await this.rsa.getPublicKey();
-        console.log("Public Key:", publicKey);
         // RSA encrypt
         const encryptedKeyBuffer = await node_crypto_1.webcrypto.subtle.encrypt({ name: "RSA-OAEP" }, publicKey, exportedKey);
-        console.log('encryptedKeyBuffer', encryptedKeyBuffer);
-        console.log('return', {
-            encryptedKey: Buffer.from(encryptedKeyBuffer).toString("base64"),
-            encryptedData: Buffer.from(encryptedData).toString("base64"),
-            iv,
-        });
         return {
             encryptedKey: Buffer.from(encryptedKeyBuffer).toString("base64"),
             encryptedData: Buffer.from(encryptedData).toString("base64"),

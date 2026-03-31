@@ -18,4 +18,7 @@ __exportStar(require("./pii.module"), exports);
 __exportStar(require("./services/aes.service"), exports);
 __exportStar(require("./services/pii.service"), exports);
 __exportStar(require("./services/rsa.service"), exports);
+__exportStar(require("./middleware/decrypt.middleware"), exports);
+__exportStar(require("./utils/mask.util"), exports);
+__exportStar(require("./types/pii.types"), exports);
 //# sourceMappingURL=index.js.map
